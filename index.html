@@ -15,8 +15,7 @@
       --b: #00cfff;
       --i: #7b2fff;
       --v: #e040fb;
-      --rainbow: linear-gradient(90deg, var(--r), var(--o), var(--y), var(--g), var(--b), var(--i), var(--v), var(--r));
-      --rainbow-ani: linear-gradient(90deg, #ff0040, #ff6b00, #ffe600, #00ff88, #00cfff, #7b2fff, #e040fb, #ff0040, #ff6b00, #ffe600);
+      --rainbow: linear-gradient(90deg, #ff0040, #ff6b00, #ffe600, #00ff88, #00cfff, #7b2fff, #e040fb, #ff0040);
       --dark: #020408;
       --dark2: #06090f;
       --card-bg: rgba(0,207,255,0.04);
@@ -38,8 +37,7 @@
 
     #cursor {
       position: fixed; width: 12px; height: 12px;
-      background: var(--rainbow); background-size: 200% 100%;
-      animation: rainbow-shift 2s linear infinite;
+      background: #00cfff;
       border-radius: 50%; pointer-events: none;
       transform: translate(-50%,-50%); z-index: 9999;
       transition: transform 0.05s;
@@ -83,13 +81,8 @@
       font-size: 1.6rem;
       font-weight: 900;
       letter-spacing: 0.15em;
-      background: var(--rainbow-ani);
-      background-size: 300% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: rainbow-shift 3s linear infinite;
-      text-shadow: none;
+      color: #fff;
+      text-shadow: 0 0 12px rgba(0,207,255,0.4);
     }
 
     .nav-links {
@@ -111,7 +104,7 @@
       content: '';
       position: absolute; bottom: -4px; left: 0; right: 0; height: 1px;
       background: var(--rainbow); background-size: 200% 100%;
-      animation: rainbow-shift 2s linear infinite;
+      animation: rainbow-shift 6s linear infinite;
       transform: scaleX(0); transition: transform 0.3s;
     }
     .nav-links a:hover { color: #fff; }
@@ -160,13 +153,19 @@
       font-weight: 900;
       line-height: 0.9;
       letter-spacing: -0.02em;
-      background: var(--rainbow-ani);
-      background-size: 300% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: rainbow-shift 4s linear infinite, fade-up 0.9s ease both 0.1s;
-      filter: drop-shadow(0 0 40px rgba(0,207,255,0.4)) drop-shadow(0 0 80px rgba(122,47,255,0.3));
+      color: #fff;
+      animation: fade-up 0.9s ease both 0.1s;
+      filter: drop-shadow(0 0 40px rgba(0,207,255,0.4));
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.15em;
+    }
+    .hero-title::after {
+      content: '';
+      position: absolute; left: 20%; right: 20%; bottom: 0.08em; height: 4px;
+      background: var(--rainbow); background-size: 200% 100%;
+      animation: rainbow-shift 6s linear infinite;
+      border-radius: 2px;
     }
 
     .hero-sub {
@@ -194,21 +193,20 @@
       font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: #000;
+      color: #fff;
       text-decoration: none;
-      border: none;
+      border: 1px solid rgba(0,207,255,0.4);
       border-radius: 4px;
       cursor: none;
       overflow: hidden;
-      background: var(--rainbow-ani);
-      background-size: 300% 100%;
-      animation: rainbow-shift 3s linear infinite;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 30px rgba(0,207,255,0.3);
+      background: rgba(0,207,255,0.1);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 0 30px rgba(0,207,255,0.15);
     }
     .btn-primary:hover {
       transform: scale(1.05) translateY(-2px);
-      box-shadow: 0 0 60px rgba(0,207,255,0.6), 0 0 100px rgba(122,47,255,0.4);
+      background: rgba(0,207,255,0.18);
+      box-shadow: 0 0 60px rgba(0,207,255,0.35);
     }
     .btn-primary::after {
       content: '';
@@ -216,7 +214,7 @@
       background: rgba(255,255,255,0);
       transition: background 0.2s;
     }
-    .btn-primary:hover::after { background: rgba(255,255,255,0.1); }
+    .btn-primary:hover::after { background: rgba(255,255,255,0.06); }
 
     .btn-ghost {
       padding: 15px 40px;
@@ -275,10 +273,8 @@
     .stat-num {
       font-family: 'Orbitron', monospace;
       font-size: 2rem; font-weight: 900;
-      background: var(--rainbow-ani); background-size: 300% 100%;
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: rainbow-shift 4s linear infinite;
+      color: #00cfff;
+      text-shadow: 0 0 10px rgba(0,207,255,0.4);
     }
     .stat-label {
       font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
@@ -295,10 +291,7 @@
       font-family: 'Orbitron', monospace;
       font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900;
       line-height: 1.1;
-      background: var(--rainbow-ani); background-size: 300% 100%;
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: rainbow-shift 5s linear infinite;
+      color: #fff;
       margin-bottom: 20px;
     }
     .section-body {
@@ -341,8 +334,8 @@
     .feature-card::after {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: var(--rainbow-ani); background-size: 300% 100%;
-      animation: rainbow-shift 3s linear infinite;
+      background: var(--rainbow); background-size: 200% 100%;
+      animation: rainbow-shift 6s linear infinite;
       transform: scaleX(0); transition: transform 0.4s;
     }
     .feature-card:hover::after { transform: scaleX(1); }
@@ -422,10 +415,8 @@
     .orb-text {
       font-family: 'Orbitron', monospace;
       font-size: 3.5rem; font-weight: 900;
-      background: var(--rainbow-ani); background-size: 300% 100%;
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: rainbow-shift 3s linear infinite;
+      color: #00cfff;
+      text-shadow: 0 0 20px rgba(0,207,255,0.5);
     }
     .download-version {
       font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
@@ -443,8 +434,8 @@
     }
     .loader-bar-fill {
       height: 100%; border-radius: 100px;
-      background: var(--rainbow-ani); background-size: 300% 100%;
-      animation: rainbow-shift 3s linear infinite, loader-fill 1.5s ease both;
+      background: #00cfff;
+      animation: loader-fill 1.5s ease both;
     }
     @keyframes loader-fill {
       from { width: 0%; }
@@ -490,7 +481,6 @@
     }
     .community-card-sub { font-size: 0.8rem; color: rgba(232,244,255,0.4); }
 
-    // you arent gonna find the epstein files here buddy
     footer {
       background: var(--dark);
       border-top: 1px solid transparent;
@@ -502,10 +492,7 @@
     .footer-logo {
       font-family: 'Orbitron', monospace;
       font-weight: 900; font-size: 1.2rem; letter-spacing: 0.15em;
-      background: var(--rainbow-ani); background-size: 300% 100%;
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: rainbow-shift 4s linear infinite;
+      color: #fff;
     }
     .footer-copy {
       font-size: 0.75rem; letter-spacing: 0.1em;
@@ -527,7 +514,7 @@
 
     @keyframes rainbow-shift {
       0% { background-position: 0% 50%; }
-      100% { background-position: 300% 50%; }
+      100% { background-position: 200% 50%; }
     }
     @keyframes fade-up {
       from { opacity: 0; transform: translateY(30px); }
@@ -535,7 +522,7 @@
     }
 
     .hero-title:hover {
-      animation: rainbow-shift 1s linear infinite, glitch 0.3s steps(2) infinite;
+      animation: glitch 0.3s steps(2) infinite;
     }
     @keyframes glitch {
       0% { clip-path: inset(0 0 90% 0); transform: skewX(-5deg); }
@@ -547,8 +534,8 @@
 
     .rainbow-rule {
       height: 2px;
-      background: var(--rainbow-ani); background-size: 300% 100%;
-      animation: rainbow-shift 4s linear infinite;
+      background: var(--rainbow); background-size: 200% 100%;
+      animation: rainbow-shift 6s linear infinite;
       border: none; margin: 0;
     }
 
@@ -589,17 +576,14 @@
 </head>
 <body>
 
-  
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
-  
   <canvas id="bg-canvas"></canvas>
   <div class="grid-overlay"></div>
   <div class="scanline"></div>
   <div class="grain"></div>
 
-  
   <nav>
     <div class="nav-logo">NSEA</div>
     <ul class="nav-links">
@@ -613,7 +597,6 @@
 
   <div class="wrapper">
 
-    
     <section id="home">
       <div class="hero-inner">
         <div class="hero-badge">UTILITY CLIENT — FABRIC EDITION</div>
@@ -630,7 +613,6 @@
       </div>
     </section>
 
-    
     <div class="stats-strip reveal">
       <div class="stat">
         <div class="stat-num">100%</div>
@@ -652,7 +634,6 @@
 
     <hr class="rainbow-rule">
 
-    
     <section id="features">
       <div class="features-header reveal">
         <p class="section-eyebrow">Core Modules</p>
@@ -662,7 +643,7 @@
       <div class="features-grid reveal">
         <div class="feature-card">
           <div class="feature-num">01</div>
-          <div class="feature-icon">▬▬ι═══════ﺤ</div>
+          <div class="feature-icon">▬▬ι══════ﺤ</div>
           <h3>Combat</h3>
           <p>Advanced combat modules with configurable reach, hit-detection manipulation, and velocity control — engineered to be indistinguishable from human input.</p>
           <span class="tag">Undetectable</span>
@@ -683,7 +664,7 @@
         </div>
         <div class="feature-card">
           <div class="feature-num">04</div>
-          <div class="feature-icon">┌|∵|┘</div>
+          <div class="feature-icon">AI</div>
           <h3>Baritone</h3>
           <p>Deep Baritone integration gives you fully automated mining, farming, and routing — configure and let NSea grind for you, 24/7.</p>
           <span class="tag blue">Automation</span>
@@ -698,7 +679,7 @@
         <div class="feature-card" style="background: linear-gradient(135deg, rgba(6,9,15,1), rgba(0,207,255,0.04));">
           <div class="feature-num">+</div>
           <div class="feature-icon" style="font-size:2.5rem;">◈</div>
-          <h3 style="background:var(--rainbow-ani);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rainbow-shift 3s linear infinite;">More Coming</h3>
+          <h3 style="color:#00cfff;">More Coming</h3>
           <p>NSea evolves constantly. New modules, new bypasses, new power — delivered automatically to every subscriber.</p>
           <span class="tag" style="background:rgba(224,64,251,0.08);border-color:rgba(224,64,251,0.25);color:#e040fb;">Roadmap</span>
         </div>
@@ -707,7 +688,6 @@
 
     <hr class="rainbow-rule">
 
-    
     <section id="download">
       <div class="download-inner">
         <div class="download-visual reveal">
@@ -756,7 +736,6 @@
 
     <hr class="rainbow-rule">
 
-    
     <section id="community">
       <div class="community-inner">
         <div class="reveal">
@@ -781,7 +760,6 @@
 
   </div>
 
-  
   <footer>
     <div class="footer-logo">NSEA</div>
     <span class="footer-copy">© 2026 NSea Client. All rights reserved.</span>
